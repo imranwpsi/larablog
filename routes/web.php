@@ -11,8 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+//User Routes
+Route::group(['namespace' => 'User'],function(){
+	Route::get('/','HomeController@index');
+	Route::get('post/{post}','PostController@post')->name('post');
+
+	Route::get('latest-posts','HomeController@show_all_letest_post');
 });
 
 //Admin Routes

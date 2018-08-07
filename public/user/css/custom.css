@@ -1,1 +1,6 @@
-/* your styles go here */
+section.hero .container {
+    padding: 20px;
+}
+section.hero {
+    margin-bottom: 25px;
+}

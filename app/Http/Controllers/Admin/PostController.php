@@ -7,6 +7,7 @@ use App\Model\User\Category;
 use App\Model\User\Post;
 use App\Model\User\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -111,7 +112,13 @@ class PostController extends Controller
             'image'=>'required'
             ]);
         if ($request->hasFile('image')) {
-            $imageName = $request->image->store('public');
+            $stored_image_name = Post::find($id)->image;
+            if($stored_image_name){
+                Storage::delete($stored_image_name);
+                $imageName = $request->image->store('public');
+            }else{
+                $imageName = $request->image->store('public');
+            }
         }
         $post = Post::find($id);
         $post->image = $imageName;

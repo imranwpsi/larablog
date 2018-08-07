@@ -1725,7 +1725,7 @@ STYLE SWITCHER FOR DEMO
   background-image: none;
 }
 
-.btn-primary {
+/*.btn-primary {
   color: #111;
   background-color: #999;
   border-color: #999;
@@ -1752,7 +1752,7 @@ STYLE SWITCHER FOR DEMO
   background-color: #868686;
   background-image: none;
   border-color: gray;
-}
+}*/
 
 .btn-secondary {
   color: #fff;
