@@ -29,8 +29,7 @@ strong {
 }
 
 a,
-i,
-span {
+i {
   display: inline-block;
   text-decoration: none;
   -webkit-transition: all 0.3s;

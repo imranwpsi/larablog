@@ -1,5 +1,19 @@
 @extends('user.layouts.app')
+@section('style')
+<link rel="stylesheet" href="{{ asset('user/css/prism.css') }}">
+@endsection
+
 @section('main-content')
+<div id="fb-root"></div>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.1&appId=1765722206877352&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   {{-- @include('user.layouts.hero') --}}
@@ -15,8 +29,8 @@
             <div class="post-meta d-flex justify-content-between">
             	<div class="category">
 	            	@foreach($post->categories as $category)
-	              		<a href="#">{{ $category->name }}</a>
-	              	@endforeach
+	              	<a href="{{ route('category',$category->slug) }}">{{ $category->name }}</a>
+	              @endforeach
               	</div>
             </div>
             <div class="post-details">
@@ -36,11 +50,11 @@
                 </div>
               </div>
               <div class="post-body">
-              	{!! $post->body !!}
+              	{!! htmlspecialchars_decode($post->body) !!}
               </div>
               <div class="post-tags">
 				@foreach($post->tags as $tag)
-              	<a href="#" class="tag">#{{ $tag->name }}</a>
+              	<a href="{{ route('tag',$tag->slug) }}" class="tag">#{{ $tag->name }}</a>
               	@endforeach
 
               </div>
@@ -53,65 +67,13 @@
                     <h6>I Bought a Wedding Dress.</h6>
                   </div>
                   <div class="icon next"><i class="fa fa-angle-right">   </i></div></a></div>
-              <div class="post-comments">
-                <header>
-                  <h3 class="h6">Post Comments<span class="no-of-comments">(3)</span></h3>
-                </header>
-                <div class="comment">
-                  <div class="comment-header d-flex justify-content-between">
-                    <div class="user d-flex align-items-center">
-                      <div class="image"><img src="img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
-                      <div class="title"><strong>Jabi Hernandiz</strong><span class="date">May 2016</span></div>
-                    </div>
-                  </div>
-                  <div class="comment-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                  </div>
-                </div>
-                <div class="comment">
-                  <div class="comment-header d-flex justify-content-between">
-                    <div class="user d-flex align-items-center">
-                      <div class="image"><img src="img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
-                      <div class="title"><strong>Nikolas</strong><span class="date">May 2016</span></div>
-                    </div>
-                  </div>
-                  <div class="comment-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                  </div>
-                </div>
-                <div class="comment">
-                  <div class="comment-header d-flex justify-content-between">
-                    <div class="user d-flex align-items-center">
-                      <div class="image"><img src="img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
-                      <div class="title"><strong>John Doe</strong><span class="date">May 2016</span></div>
-                    </div>
-                  </div>
-                  <div class="comment-body">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="add-comment">
-                <header>
-                  <h3 class="h6">Leave a reply</h3>
-                </header>
-                <form action="#" class="commenting-form">
-                  <div class="row">
-                    <div class="form-group col-md-6">
-                      <input type="text" name="username" id="username" placeholder="Name" class="form-control">
-                    </div>
-                    <div class="form-group col-md-6">
-                      <input type="email" name="username" id="useremail" placeholder="Email Address (will not be published)" class="form-control">
-                    </div>
-                    <div class="form-group col-md-12">
-                      <textarea name="usercomment" id="usercomment" placeholder="Type your comment" class="form-control"></textarea>
-                    </div>
-                    <div class="form-group col-md-12">
-                      <button type="submit" class="btn btn-secondary">Submit Comment</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
+
+
+				
+				<div class="fb-comments" data-href="{{ Request::url() }}" data-width="100%" data-numposts="5"></div>
+
+
+
             </div>
           </div>
         </div>
@@ -190,4 +152,8 @@
   </div>
   </div>
 <!-- /.content-wrapper -->
+@endsection
+
+@section('script')
+<script src="{{ asset('user/js/prism.js') }}"></script>
 @endsection

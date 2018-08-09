@@ -17,6 +17,9 @@ Route::group(['namespace' => 'User'],function(){
 	Route::get('post/{post}','PostController@post')->name('post');
 
 	Route::get('latest-posts','HomeController@show_all_letest_post');
+
+	Route::get('post/category/{category}','HomeController@category')->name('category');
+	Route::get('post/tag/{tag}','HomeController@tag')->name('tag');
 });
 
 //Admin Routes
@@ -69,3 +72,6 @@ Route::group(['namespace' => 'Admin'],function(){
 // Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

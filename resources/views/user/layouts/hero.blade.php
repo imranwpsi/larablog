@@ -3,7 +3,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-7">
-        <h1>Bootstrap 4 Blog - A free template by Bootstrap Temple</h1>
+        <h1></h1>
       </div>
   </div>
 </section>

@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="{{ asset('user/css/custom.css') }}">
     <!-- Favicon-->
     <link rel="shortcut icon" href="{{ asset('user/favicon.png') }}">
+    @yield('style')
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -42,6 +43,7 @@
     <script src="{{ asset('user/vendor/@fancyapps/fancybox/jquery.fancybox.min.js') }}"></script>
     <script src="{{ asset('js/jquery.jscroll.min.js') }}"></script>
     <script src="{{ asset('user/js/front.js') }}"></script>
+    @yield('script')
     <script type="text/javascript">
         $('ul.pagination').hide();
         $(function() {
