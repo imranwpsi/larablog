@@ -34,20 +34,27 @@
 	          {{ method_field('PUT') }}
 	            <div class="box-body">
 	            <div class="col-lg-offset-3 col-lg-6">
-	              <div class="form-group">
-	                <label for="name">Permission</label>
-	                <input type="text" class="form-control" id="name" name="name" placeholder="Permission" value="{{ $permission->name }}">
-	              </div>
+	              	<div class="form-group">
+	                	<label for="name">Permission</label>
+	                	<input type="text" class="form-control" id="name" name="name" placeholder="Permission" value="{{ $permission->name }}">
+	              	</div>
+	              	<div class="form-group">
+		              	<label for="for">Permission for</label>
+		              	<select name="for" id="for" class="form-control">
+		              		<option disable>Select Permission for</option>
+		              		<option value="user" {{ $permission->for =='user' ? 'selected' : null }} >User</option>
+		              		<option value="post" {{ $permission->for =='post' ? 'selected' : null }} >Post</option>
+		              		<option value="other" {{ $permission->for =='other' ? 'selected' : null }} >Other</option>
+		              	</select>
+	              	</div>
 
-	            <div class="form-group">
-	              <button type="submit" class="btn btn-primary">Submit</button>
-	              <a href='{{ route('permission.index') }}' class="btn btn-warning">Back</a>
-	            </div>
+		            <div class="form-group">
+		              	<button type="submit" class="btn btn-primary">Submit</button>
+		              	<a href='{{ route('permission.index') }}' class="btn btn-warning">Back</a>
+		            </div>
 	            	
 	            </div>
-					
 				</div>
-
 	          </form>
 	        </div>
 	        <!-- /.box -->

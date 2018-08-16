@@ -44,7 +44,7 @@
                         <tr>
                           <th>S.No</th>
                           <th>User Name</th>
-                          <th>Assigned Roles</th>
+                          {{-- <th>Assigned Roles</th> --}}
                           <th>Status</th>
                           <th>Edit</th>
                           <th>Delete</th>
@@ -55,11 +55,11 @@
                           <tr>
                             <td>{{ $loop->index + 1 }}</td>
                             <td>{{ $user->name }}</td>
-                            <td>
+                            {{-- <td>
                               @foreach ($user->roles as $role)
                                 {{ $role->name }},
                               @endforeach
-                            </td>
+                            </td> --}}
                             <td>{{ $user->status? 'Active' : 'Not Active' }}</td>
                               <td><a href="{{ route('user.edit',$user->id) }}"><span class="glyphicon glyphicon-edit"></span></a></td>
                               <td>
@@ -85,7 +85,7 @@
                         <tr>
                           <th>S.No</th>
                           <th>User Name</th>
-                          <th>Assigned Roles</th>
+                          {{-- <th>Assigned Roles</th> --}}
                           <th>Status</th>
                           <th>Edit</th>
                           <th>Delete</th>
