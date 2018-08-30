@@ -39,7 +39,7 @@
 						<input type="text" class="form-control" id="name" name="name" placeholder="role Title" value="{{ $role->name }}">
 					</div>
 
-      				{{-- <div class="row">
+      				<div class="row">
       	              <div class="col-lg-4">
       	              	<label for="name">Posts Permissions</label>
       	              	@foreach ($permissions as $permission)
@@ -89,7 +89,7 @@
         	              		@endif
         	              	@endforeach
       	              </div>
-      	            </div> --}}
+      	            </div>
 
 	            <div class="form-group">
 	              <button type="submit" class="btn btn-primary">Submit</button>

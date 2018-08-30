@@ -4,10 +4,10 @@
     <!-- Sidebar user panel -->
     <div class="user-panel">
       <div class="pull-left image">
-        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        <img src="{{ asset('admin/dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
-        <p>Admin</p>
+        <p>{{ Auth::user()->name }}</p>
         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
       </div>
     </div>
@@ -34,7 +34,9 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="{{ route('post.index') }}"><i class="fa fa-circle-o"></i> View Post</a></li>
+          @can('posts.create', Auth::user())
           <li><a href="{{ route('post.create') }}"><i class="fa fa-circle-o"></i> Create Post</a></li>
+          @endcan
         </ul>
       </li>
       <li class="treeview">

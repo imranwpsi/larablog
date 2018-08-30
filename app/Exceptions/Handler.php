@@ -64,11 +64,11 @@ class Handler extends ExceptionHandler
 
         switch ($guard) {
             case 'admin':
-                    return redirect()->guest(route('admin.login'));
+                return redirect()->guest(route('admin.login'));
                 break;
             
             default:
-                    return redirect()->guest(route('login'));
+                return redirect()->guest(route('login'));
                 break;
         }
         

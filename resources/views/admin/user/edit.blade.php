@@ -58,20 +58,23 @@
 
                   <div class="form-group">
                     <label>Assign Role</label>
-                    {{-- <div class="row">
+                    <div class="row">
                       @foreach ($roles as $role)
                           <div class="col-lg-3">
                             <div class="checkbox">
-                              <label ><input type="checkbox" name="role[]" value="{{ $role->id }}"
-                              @foreach ($user->roles as $user_role)
-                                @if ($user_role->id == $role->id)
-                                  checked
-                                @endif
-                              @endforeach> {{ $role->name }}</label>
+                              <label>
+                                <input type="checkbox" name="role[]" value="{{ $role->id }}"
+                                @foreach ($user->roles as $user_role)
+                                  @if ($user_role->id == $role->id)
+                                    checked
+                                  @endif
+                                @endforeach
+                              > {{ $role->name }}
+                            </label>
                             </div>
                           </div>
                       @endforeach
-                    </div> --}}
+                    </div>
                   </div>
 
                   <div class="form-group">

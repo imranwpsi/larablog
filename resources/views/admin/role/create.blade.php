@@ -35,7 +35,7 @@
 	            <div class="col-lg-offset-3 col-lg-6">
 	              <div class="form-group">
 	                <label for="name">Role title</label>
-	                <input type="text" class="form-control" id="name" name="name" placeholder="role Title">
+	                <input type="text" class="form-control" id="name" name="name" placeholder="Role title">
 	              </div>
 				
 				<div class="row">

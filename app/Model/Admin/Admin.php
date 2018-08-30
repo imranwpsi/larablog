@@ -11,7 +11,7 @@ class Admin extends Authenticatable
 
     public function roles()
     {
-        return $this->belongsToMany('App\Model\admin\role');
+        return $this->belongsToMany('App\Model\Admin\Role','admin_roles');
     }
 
     public function getNameAttribute($value){

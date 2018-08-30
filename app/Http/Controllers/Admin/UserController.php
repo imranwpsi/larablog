@@ -10,6 +10,16 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -39,7 +49,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
         $this->validate($request,[
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:admins',
@@ -85,15 +94,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $this->validate($request,[
-        //     'name' => 'required|string|max:255',
-        //     'email' => 'required|string|email|max:255',
-        //     'phone' => 'required|numeric',
-        // ]);
-        // $request->status? : $request['status']=0;
-        // $user = Admin::where('id',$id)->update($request->except('_token','_method','role'));
-        // admin::find($id)->roles()->sync($request->role);
-        // return redirect(route('user.index'))->with('message','User updated successfully');
+        $this->validate($request,[
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255',
+            'phone' => 'required|numeric',
+        ]);
+        $request->status? : $request['status']=0;
+        $user = Admin::where('id',$id)->update($request->except('_token','_method','role'));
+        Admin::find($id)->roles()->sync($request->role);
+        return redirect(route('user.index'))->with('message','User updated successfully');
     }
 
     /**
